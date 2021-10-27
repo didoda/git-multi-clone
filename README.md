@@ -59,7 +59,7 @@ Launch it with `./clone.sh`.
 
 You can clone by group with '-g' argument. Using the example json above, if you want to clone just "docs" repositories:
 
-```
+```shell
 ./clone.sh -g docs
 ```
 
