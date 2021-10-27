@@ -2,7 +2,7 @@
 
 ![image](https://img.shields.io/badge/Shell-B238AC?style=for-the-badge&logo=favella&logoColor=white)
 
-A shell that provides multiple repositories clone.
+A shell that provides multiple repositories clone and sync.
 
 ## Set clone.sh permission
 
@@ -12,9 +12,10 @@ Make `clone.sh` executable. I.e.: `chmod 755 clone.sh`.
 
 Setup `projects.json` according to your needs.
 
-```
+```json
 [
   {
+    "group": "cake",
     "destination": "/workspace/cake",
     "repositories": [
       "git@github.com:cakephp/app.git",
@@ -24,6 +25,7 @@ Setup `projects.json` according to your needs.
     ]
   },
   {
+    "group": "docs",
     "destination": "/workspace/docs",
     "repositories": [
       "git@github.com:cakephp/docs.git"
@@ -42,7 +44,7 @@ Install `jq`, if you don't have it already.
 
 You can obtain info about usage by `./clone.sh help`.
 
-```
+```shell
 ./clone.sh help
 ./clone.sh                      # clone all from projects.json
 ./clone.sh sync                 # fetch and pull projects
@@ -55,10 +57,10 @@ You can obtain info about usage by `./clone.sh help`.
 
 Launch it with `./clone.sh`.
 
-You can clone by group with '-g' argument.
+You can clone by group with '-g' argument. Using the example json above, if you want to clone just "docs" repositories:
 
 ```
-./clone.sh -g <group>           # clone repositories by group matching in projects.json
+./clone.sh -g docs
 ```
 
 ### Multi sync (fetch and pull)
