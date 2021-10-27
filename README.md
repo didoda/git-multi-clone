@@ -45,7 +45,6 @@ Install `jq`, if you don't have it already.
 You can obtain info about usage by `./clone.sh help`.
 
 ```shell
-./clone.sh help
 ./clone.sh                      # clone all from projects.json
 ./clone.sh sync                 # fetch and pull projects
 ./clone.sh -g <group>           # clone repositories by group matching in projects.json
