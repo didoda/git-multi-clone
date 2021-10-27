@@ -46,8 +46,8 @@ You can obtain info about usage by `./clone.sh help`.
 
 ```shell
 ./clone.sh                      # clone all from projects.json
-./clone.sh sync                 # fetch and pull projects
 ./clone.sh -g <group>           # clone repositories by group matching in projects.json
+./clone.sh sync                 # fetch and pull projects
 ./clone.sh sync -g <group>      # fetch and pull repositories by group matching in projects.json
 ./clone.sh help                 # show usage
 ```
