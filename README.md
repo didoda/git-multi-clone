@@ -1,4 +1,7 @@
-# git-multi-clone
+# Git multi clone
+
+![image](https://img.shields.io/badge/Shell-B238AC?style=for-the-badge&logo=favella&logoColor=white)
+
 A shell that provides multiple repositories clone.
 
 ## Set clone.sh permission
