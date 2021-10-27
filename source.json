@@ -1,0 +1,17 @@
+[
+  {
+    "destination": "/workspace/cake",
+    "repositories": [
+      "git@github.com:cakephp/app.git",
+      "git@github.com:cakephp/bake.git",
+      "git@github.com:cakephp/cakephp.git",
+      "git@github.com:cakephp/migrations.git"
+    ]
+  },
+  {
+    "destination": "/workspace/docs",
+    "repositories": [
+      "git@github.com:cakephp/docs.git"
+    ]
+  }
+]
