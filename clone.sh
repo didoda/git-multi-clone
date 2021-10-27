@@ -2,8 +2,8 @@
 
 if [[ $1 = "help" ]]; then
   echo "./clone.sh                      # clone all from projects.json"
-  echo "./clone.sh sync                 # fetch and pull projects"
   echo "./clone.sh -g <group>           # clone repositories by group matching in projects.json"
+  echo "./clone.sh sync                 # fetch and pull projects"
   echo "./clone.sh sync -g <group>      # fetch and pull repositories by group matching in projects.json"
   echo "./clone.sh help                 # show usage"
   exit
