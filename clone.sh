@@ -1,16 +1,20 @@
 #!/bin/bash
 
 # set length
-readarray length <<< $( cat source.json | jq '. | length' )
+readarray length <<< $( cat projects.json | jq '. | length' )
+
+# set current dir
+here=$( pwd )
 
 # cycle over json array elements
 i=0
 until [ $i -ge $length ]
 do
-  readarray destination <<< $( cat source.json | jq -r ".[$i] | .destination" )
+  cd $here
+  readarray destination <<< $( cat projects.json | jq -r ".[$i] | .destination" )
 
   # get repositories and cycle over them
-  readarray repositories <<< $( cat source.json | jq -r ".[$i] | .repositories" )
+  readarray repositories <<< $( cat projects.json | jq -r ".[$i] | .repositories" )
   for repository in ${repositories[@]}
   do
     if [[ $repository = "[" || $repository = "]" ]]; then
@@ -37,7 +41,14 @@ do
     if [ ! -d "$folder" ]; then
       git clone $repository $folder
     else
-      echo "$folder already cloned"
+      if [[ $1 = "sync" ]]; then
+        echo "sync $folder (fetch & pull)"
+        cd $folder
+        git fetch -p
+        git pull -p
+      else
+        echo "$folder already cloned"
+      fi
     fi
   done
 

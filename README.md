@@ -8,9 +8,9 @@ A shell that provides multiple repositories clone.
 
 Make `clone.sh` executable. I.e.: `chmod 755 clone.sh`.
 
-## Setup source.json
+## Setup projects.json
 
-Setup `source.json` according to your needs.
+Setup `projects.json` according to your needs.
 
 ```
 [
@@ -40,4 +40,10 @@ Install `jq`, if you don't have it already.
 
 ## Usage
 
+### Multi clone
+
 Launch it with `./clone.sh`.
+
+### Multi sync (fetch and pull)
+
+Launching `./clone.sh sync`, the shell will do a `git fetch -p` and `git pull` in the repositories defined in `projects.json`.
