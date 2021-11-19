@@ -1,6 +1,4 @@
-# Git multi clone
-
-![image](https://img.shields.io/badge/Shell-B238AC?style=for-the-badge&logo=favella&logoColor=white)
+![image](https://img.shields.io/badge/Shell-B238AC?style=for-the-badge&logo=gitmulticlone&logoColor=white)
 
 A shell that provides multiple repositories clone and sync.
 
