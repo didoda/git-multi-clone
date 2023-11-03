@@ -9,13 +9,22 @@ if [[ $1 = "help" ]]; then
   exit
 fi
 
-while getopts ":g:" arg; do
-    case "${arg}" in
-        g)
-            g=${OPTARG}
-            ;;
-    esac
-done
+if [ "$1" = "sync" ]
+then
+  cmd='sync';
+else
+  cmd='clone';
+fi
+
+if [ "$1" = "-g" ]
+then
+  g=$2;
+fi
+
+if [ "$2" = "-g" ]
+then
+  g=$3;
+fi
 
 # set length
 readarray length <<< $( cat projects.json | jq '. | length' )
@@ -72,7 +81,7 @@ do
     if [ ! -d "$folder" ]; then
       git clone $repository $folder
     else
-      if [[ cmd = "sync" ]]; then
+      if [[ $cmd == "sync" ]]; then
         echo "sync $folder (fetch & pull)"
         cd $folder
         git fetch -p
