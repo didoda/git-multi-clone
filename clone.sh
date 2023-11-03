@@ -56,7 +56,9 @@ do
 
     # set vars to build destination path
     if [[ "$repository" == *, ]]; then
-      project=$( basename "$repository" ".${repository##*.}" )
+      # remove last comma
+      project=$( echo "${repository%,*} ${repository##*,}" )
+      project=$( basename "$project" ".${project##*.}")
       repository=$( echo "${repository%,*} ${repository##*,}" )
     else
       project=$( basename "$repository" ".${repository##*.}" )
@@ -64,6 +66,7 @@ do
     repository=$( echo "$repository" | tr -d '"')
     destination=$( echo "$destination" | xargs )
     folder=$( echo "$destination/$project" | tr -d '"')
+    folder=$( echo "$folder" | xargs )
 
     # clone project, if not existing
     if [ ! -d "$folder" ]; then
